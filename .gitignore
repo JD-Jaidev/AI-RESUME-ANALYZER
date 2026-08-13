@@ -1,0 +1,15 @@
+# Virtual Environment
+venv/
+
+# Environment Variables
+.env
+
+# FAISS Index
+faiss_index/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+
+# VS Code
+.vscode/
