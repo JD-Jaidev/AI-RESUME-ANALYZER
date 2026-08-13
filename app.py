@@ -80,7 +80,7 @@ def analyze_resume(resume_text, jd_text, model_choice):
     return response.content
 
 def main():
-    st.set_page_config(page_title="AI ATS Resume Analyzer", page_icon="📈", layout="wi  de")
+    st.set_page_config(page_title="AI ATS Resume Analyzer", page_icon="📈", layout="wide")
     
     st.title("📈 AI ATS Resume Analyzer")
     col1, col2 = st.columns([1, 3])
