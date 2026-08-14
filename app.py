@@ -80,7 +80,7 @@ def analyze_resume(resume_text, jd_text, model_choice):
     return response.content
 
 def main():
-    st.set_page_config(page_title="AI ATS Resume Analyzer", page_icon="📈", layout="wide")
+    st.set_page_config(page_title="AI ATS Resume Analyzer", page_icon="📈", layout="centered")
     
     st.title("📈 AI Resume Analyzer")
     col1, col2 = st.columns([1, 3])
@@ -106,7 +106,7 @@ def main():
         st.subheader("2. Target Job Description")
         jd_text = st.text_area("Paste the Job Description here", height=200, placeholder="E.g., We are looking for a software engineer with experience in Python, Streamlit, and GenAI...")
 
-    if st.button("Analyze ATS Compatibility", use_container_width=True, type="primary"):
+    if st.button("Analyze ATS Compatibility", use_container_width=False, type="primary"):
         if not pdf_doc:
             st.warning("Please upload a resume (PDF).")
         elif not jd_text.strip():
