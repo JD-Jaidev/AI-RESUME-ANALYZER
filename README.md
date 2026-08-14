@@ -18,7 +18,7 @@ An **AI-powered Multi model resume analysis tool** that compares a resume with a
 - **Python**
 - **Streamlit**
 - **LangChain**
-- **LLM APIs (Gemini / other supported models)**
+- **LLM APIs (Gemini / OpenRouter)**
 - **PyPDF2**
 - **JSON & Regex**
 - **python-dotenv**
@@ -33,6 +33,7 @@ AI-RESUME-ANALYZER/
 ├── README.md
 ├── .gitignore
 ├── .env
+├── venv/
 └── faiss_index/
 ```
 
@@ -45,13 +46,13 @@ git clone https://github.com/JD-Jaidev/AI-RESUME-ANALYZER
 cd AI-RESUME-ANALYZER
 ```
 
-### Create a virtual environment
+### Create a virtual environment : 
 
 ```bash
 python -m venv venv
 ```
 
-Activate it:
+### Activate it :
 
 **Windows**
 
@@ -65,19 +66,19 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-### Install dependencies
+### Install dependencies :
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Configure API Keys
+### Configure API Keys : 
 
 Create a `.env` file and add the required API keys:
 
 Only add the keys required by your implementation.
 
-### Run the application
+### Run the application : 
 
 ```bash
 streamlit run app.py
@@ -98,6 +99,8 @@ Prompt Template
     ↓
 AI Resume/JD Analysis
     ↓
+AI Parsing
+    ↓
 Structured JSON
     ↓
 JSON Parsing
@@ -109,11 +112,11 @@ Streamlit UI
 
 ## 🔮 Future Improvements
 
-* Model wise report comparison
-* Section-wise resume analysis
-* ATS score visualization
-* AI improvement → re-analysis loop
-* Downloadable comparison report 
+- Model wise report comparison
+- Section-wise resume analysis
+- ATS score visualization
+- AI improvement → re-analysis loop
+- Downloadable comparison report 
 
 ## 👨‍💻 Author & Developer
 
