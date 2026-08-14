@@ -106,7 +106,7 @@ def main():
         st.subheader("2. Target Job Description")
         jd_text = st.text_area("Paste the Job Description here", height=200, placeholder="E.g., We are looking for a software engineer with experience in Python, Streamlit, and GenAI...")
 
-    if st.button("Analyze ATS Compatibility", use_container_width=False, type="primary"):
+    if st.button("Analyze ATS Compatibility", use_container_width=True, type="primary"):
         if not pdf_doc:
             st.warning("Please upload a resume (PDF).")
         elif not jd_text.strip():
