@@ -29,23 +29,16 @@ def get_pdf_text(pdf_file):
 
 def get_analyzer_model(model_choice):
     # Dynamically loads the selected LLM.
-    if model_choice == "Titan 3.5":
-        model = ChatGoogleGenerativeAI(
-            model="gemini-3.5-flash", 
-            google_api_key=google_api_key,
-            temperature=0.1
-        )
-    else:
-        MODELS = {
-            "Kairo V3": "deepseek/deepseek-chat",
-            "Luma 3": "qwen/qwen3-8b"
-        }
-        model = ChatOpenAI(
-            model=MODELS[model_choice],
-            base_url="https://openrouter.ai/api/v1",
-            api_key=openrouter_api_key,
-            temperature=0.1
-        )
+    MODELS = {
+        "Kairo V3": "deepseek/deepseek-chat",
+        "Luma 3": "qwen/qwen3-8b"
+    }
+    model = ChatOpenAI(
+        model=MODELS[model_choice],
+        base_url="https://openrouter.ai/api/v1",
+        api_key=openrouter_api_key,
+        temperature=0.1
+    )
     return model
 
 def analyze_resume(resume_text, jd_text, model_choice):
@@ -77,17 +70,7 @@ def analyze_resume(resume_text, jd_text, model_choice):
     
     # We use invoke instead of stream because we need the complete JSON to render the dashboard
     response = chain.invoke({"jd_text": jd_text, "resume_text": resume_text})
-    if isinstance(response.content, str): # i added this the gemini's response str is in the form of list/other objects so that it wasnt able to process it, so i covert it into a str.
-        return response.content
-
-    elif isinstance(response.content, list):
-        return "".join(
-            item.get("text", "") if isinstance(item, dict) else str(item)
-            for item in response.content
-        )
-
-    else:
-        return str(response.content)
+    return response.content
 
 def main():
     st.set_page_config(page_title="AI ATS Resume Analyzer", page_icon="📈", layout="centered")
@@ -97,7 +80,7 @@ def main():
     with col1:
         model_choice = st.selectbox(
             "Select AI Model",
-            ("Titan 3.5", "Kairo V3", "Luma 3"),
+            ("Kairo V3", "Luma 3"),
             index=1,
             label_visibility="collapsed"
         )
