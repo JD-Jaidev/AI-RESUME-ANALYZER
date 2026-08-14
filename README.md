@@ -109,12 +109,11 @@ Streamlit UI
 
 ## 🔮 Future Improvements
 
-* Model wise report comparison comparison
-* Source/page references
-* Improved retrieval and reranking
-* Persistent vector database
-* Multimodal document analysis
-* Cloud deployment
+* Model wise report comparison
+* Section-wise resume analysis
+* ATS score visualization
+* AI improvement → re-analysis loop
+* Downloadable comparison report 
 
 ## 👨‍💻 Author & Developer
 
