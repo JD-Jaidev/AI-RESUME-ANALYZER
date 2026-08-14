@@ -29,7 +29,7 @@ def get_pdf_text(pdf_file):
 
 def get_analyzer_model(model_choice):
     # Dynamically loads the selected LLM.
-    if model_choice == "Titan 3.5":
+    if model_choice == "Titan 1.5":
         model = ChatGoogleGenerativeAI(
             model="gemini-3.5-flash", 
             google_api_key=google_api_key,
