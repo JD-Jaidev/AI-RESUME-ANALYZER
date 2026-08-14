@@ -77,7 +77,17 @@ def analyze_resume(resume_text, jd_text, model_choice):
     
     # We use invoke instead of stream because we need the complete JSON to render the dashboard
     response = chain.invoke({"jd_text": jd_text, "resume_text": resume_text})
-    return response.content
+    if isinstance(response.content, str): # i added this the gemini's response str is in the form of list/other objects so that it wasnt able to process it, so i covert it into a str.
+        return response.content
+
+    elif isinstance(response.content, list):
+        return "".join(
+            item.get("text", "") if isinstance(item, dict) else str(item)
+            for item in response.content
+        )
+
+    else:
+        return str(response.content)
 
 def main():
     st.set_page_config(page_title="AI ATS Resume Analyzer", page_icon="📈", layout="centered")
